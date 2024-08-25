@@ -1,5 +1,10 @@
-import Image from "next/image";
+import { HomeClient } from "@/app/components";
+import { getFilteredCountriesWithCoordinates } from "@/app/services";
 
-export default function Home() {
-  return <main></main>;
-}
+const Home = async () => {
+  const countries = await getFilteredCountriesWithCoordinates();
+
+  return <HomeClient countries={countries} />;
+};
+
+export default Home;
