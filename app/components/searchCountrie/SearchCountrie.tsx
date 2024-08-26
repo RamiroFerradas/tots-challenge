@@ -19,7 +19,7 @@ const SearchCountrie = ({
   setOpenDetails,
 }: Props) => {
   return (
-    <div className="p-4 bg-gray-100 overflow-y-auto w-full">
+    <div className="p-4 bg-gray-100 w-full h-full">
       <input
         type="text"
         placeholder="Buscar país..."
@@ -28,7 +28,7 @@ const SearchCountrie = ({
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <ul className="space-y-2">
+      <ul className="space-y-2 h-36 lg:h-full overflow-auto">
         {filteredCountries.map((country) => (
           <li
             key={country.code}

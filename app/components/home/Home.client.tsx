@@ -4,6 +4,7 @@ import { Country } from "@/app/models/country";
 import SearchCountrie from "@/app/components/searchCountrie/SearchCountrie";
 import dynamic from "next/dynamic";
 import CountryDetail from "@/app/components/searchCountrie/CountryDetail";
+import classNames from "classnames";
 
 type Props = {
   countries: Country[];
@@ -32,20 +33,28 @@ const HomeClient = ({ countries }: Props) => {
   };
 
   return (
-    <div className="mx-auto flex h-screen">
-      <section className="w-3/4 h-full">
+    <div className="mx-auto flex lg:flex-row flex-col h-screen w-screen">
+      <section className="h-3/4 lg:w-3/4 lg:h-full">
         <Map
           selectedCountry={selectedCountry}
           onCountrySelect={handleCountrySelect}
         />
       </section>
 
-      <section className="relative w-1/4 h-full overflow-hidden">
+      <section className="relative h-1/4 lg:w-1/4 lg:h-full overflow-hidden">
         <div
-          className={`absolute inset-0 transition-transform duration-300 ${
-            openDetails ? "translate-x-0" : "translate-x-full"
-          } z-50 `}
+          className={classNames(
+            "absolute transition-transform duration-300 top-0 right-0 h-full w-full z-50",
+            {
+              "lg:translate-x-0 lg:translate-y-0": openDetails,
+              "lg:translate-x-full lg:translate-y-0": !openDetails,
+
+              "translate-x-0 translate-y-0": openDetails,
+              "translate-x-0 translate-y-full": !openDetails,
+            }
+          )}
         >
+          {/* openDetails ? "translate-x-0" : "translate-x-full" */}
           <div className="p-4 bg-white h-full">
             {openDetails && selectedCountry && (
               <CountryDetail

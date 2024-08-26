@@ -10,7 +10,7 @@ type Props = {
 
 const CountryDetail = ({ country, onClose }: Props) => {
   return (
-    <div className="absolute top-0 right-0 h-full w-full bg-white shadow-lg p-4 transition-transform duration-300 transform translate-x-0">
+    <div className="w-full">
       <IconButton
         edge="end"
         color="inherit"
