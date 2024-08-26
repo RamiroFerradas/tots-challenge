@@ -21,7 +21,6 @@ const HomeClient = ({ countries }: Props) => {
   const filteredCountries = countries.filter((country) =>
     country.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
   const handleCountrySelect = (country: Country) => {
     setSelectedCountry(null);
     setSelectedCountry(country);

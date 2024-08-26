@@ -1,8 +1,8 @@
 import { HomeClient } from "@/app/components";
-import { getFilteredCountriesWithCoordinates } from "@/app/services";
+import { getCountriesWithCoordinates } from "@/app/services";
 
 const Home = async () => {
-  const countries = await getFilteredCountriesWithCoordinates();
+  const countries = await getCountriesWithCoordinates();
 
   return <HomeClient countries={countries} />;
 };
