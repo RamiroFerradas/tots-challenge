@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Favicon from "@/public/planet.svg";
+import Favicon from "@/public/favico.ico";
 
 const inter = Inter({ subsets: ["latin"] });
 
