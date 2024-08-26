@@ -1,5 +1,3 @@
-// pages/404.tsx
-
 import Image from "next/image";
 import Link from "next/link";
 import planet from "@/public/planet.svg";

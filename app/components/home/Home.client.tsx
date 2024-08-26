@@ -5,6 +5,7 @@ import SearchCountrie from "@/app/components/searchCountrie/SearchCountrie";
 import dynamic from "next/dynamic";
 import CountryDetail from "@/app/components/searchCountrie/CountryDetail";
 import classNames from "classnames";
+import ErrorBoundary from "@/app/error";
 
 type Props = {
   countries: Country[];
