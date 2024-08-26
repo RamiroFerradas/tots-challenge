@@ -5,7 +5,7 @@ export const { getClient } = registerApolloClient(() => {
   return new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-      uri: "https://countries.trevorblades.com/",
+      uri: process.env.NEXT_PUBLIC_GRAPHQL_API_URL,
     }),
   });
 });
