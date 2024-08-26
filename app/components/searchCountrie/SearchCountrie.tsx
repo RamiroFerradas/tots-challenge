@@ -1,20 +1,22 @@
 import { Country } from "@/app/models/country";
 import Image from "next/image";
+import { Dispatch, SetStateAction } from "react";
 
 type Props = {
   searchTerm: string;
-  setSearchTerm: (term: string) => void;
+  setSearchTerm: Dispatch<SetStateAction<string>>;
   filteredCountries: Country[];
   selectedCountry: Country | null;
-  setSelectedCountry: (country: Country) => void;
+  setSelectedCountry: Dispatch<SetStateAction<Country | null>>;
+  setOpenDetails: Dispatch<SetStateAction<boolean>>;
 };
-
 const SearchCountrie = ({
   searchTerm,
   setSearchTerm,
   filteredCountries,
   selectedCountry,
   setSelectedCountry,
+  setOpenDetails,
 }: Props) => {
   return (
     <div className="p-4 bg-gray-100 overflow-y-auto w-full">
@@ -30,23 +32,33 @@ const SearchCountrie = ({
         {filteredCountries.map((country) => (
           <li
             key={country.code}
-            className={`p-2 cursor-pointer rounded ${
+            className={`p-2 flex justify-between items-center cursor-pointer rounded ${
               selectedCountry?.code === country.code
                 ? "bg-blue-200"
                 : "bg-white"
             } hover:bg-blue-100`}
             onClick={() => setSelectedCountry(country)}
           >
-            <div className="flex m-auto gap-2">
+            <div className="flex items-center gap-2">
               <Image
                 src={country.imageUrl}
                 alt={`Flag of ${country.name}`}
                 width={40}
-                height={4}
+                height={40}
                 className="object-cover rounded-md"
               />
-              {country.name}
+              <span>{country.name}</span>
             </div>
+            <button
+              className="ml-4 px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedCountry(country);
+                setOpenDetails(true);
+              }}
+            >
+              Info
+            </button>
           </li>
         ))}
       </ul>

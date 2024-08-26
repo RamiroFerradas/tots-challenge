@@ -15,8 +15,8 @@ const Map = dynamic(() => import("@/app/components/map/index"), {
 
 const HomeClient = ({ countries }: Props) => {
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [openDetails, setOpenDetails] = useState<boolean>(false);
 
   const filteredCountries = countries.filter((country) =>
     country.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -24,11 +24,11 @@ const HomeClient = ({ countries }: Props) => {
   const handleCountrySelect = (country: Country) => {
     setSelectedCountry(null);
     setSelectedCountry(country);
-    setDrawerOpen(true);
+    setOpenDetails(true);
   };
 
   const handleCloseDrawer = () => {
-    setDrawerOpen(false);
+    setOpenDetails(false);
   };
 
   return (
@@ -43,11 +43,11 @@ const HomeClient = ({ countries }: Props) => {
       <section className="relative w-1/4 h-full overflow-hidden">
         <div
           className={`absolute inset-0 transition-transform duration-300 ${
-            drawerOpen ? "translate-x-0" : "translate-x-full"
+            openDetails ? "translate-x-0" : "translate-x-full"
           } z-50 `}
         >
           <div className="p-4 bg-white h-full">
-            {selectedCountry && (
+            {openDetails && selectedCountry && (
               <CountryDetail
                 country={selectedCountry}
                 onClose={handleCloseDrawer}
@@ -62,7 +62,8 @@ const HomeClient = ({ countries }: Props) => {
             setSearchTerm={setSearchTerm}
             filteredCountries={filteredCountries}
             selectedCountry={selectedCountry}
-            setSelectedCountry={handleCountrySelect}
+            setSelectedCountry={setSelectedCountry}
+            setOpenDetails={setOpenDetails}
           />
         </div>
       </section>
