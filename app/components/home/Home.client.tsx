@@ -23,6 +23,7 @@ const HomeClient = ({ countries }: Props) => {
   );
 
   const handleCountrySelect = (country: Country) => {
+    setSelectedCountry(null);
     setSelectedCountry(country);
     setDrawerOpen(true);
   };
