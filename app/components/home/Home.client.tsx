@@ -54,13 +54,14 @@ const HomeClient = ({ countries }: Props) => {
             }
           )}
         >
-          {/* openDetails ? "translate-x-0" : "translate-x-full" */}
           <div className="p-4 bg-white h-full">
             {openDetails && selectedCountry && (
-              <CountryDetail
-                country={selectedCountry}
-                onClose={handleCloseDrawer}
-              />
+              <div className="h-48 lg:h-auto overflow-auto">
+                <CountryDetail
+                  country={selectedCountry}
+                  onClose={handleCloseDrawer}
+                />
+              </div>
             )}
           </div>
         </div>

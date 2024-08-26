@@ -10,30 +10,31 @@ type Props = {
 
 const CountryDetail = ({ country, onClose }: Props) => {
   return (
-    <div className="w-full">
+    <div className="w-full h-full px-4">
       <IconButton
         edge="end"
         color="inherit"
         onClick={onClose}
         aria-label="close"
-        sx={{ position: "absolute", right: 16, top: 16 }}
-        className="mb-4"
+        className="mb-4 !absolute !right-2 !top-1 !lg:right-4 !lg:top-4"
       >
         <CloseIcon />
       </IconButton>
-      <div className="flex flex-col items-center mt-8">
-        <Image
-          src={country.imageUrl}
-          alt={`Flag of ${country.name}`}
-          width={100}
-          height={60}
-          className="mb-4"
-        />
-        <h2 className="text-xl font-semibold mb-2">
-          {country.name} {country.emoji}
-        </h2>
+      <div className="flex flex-col items-start lg:items-center mt-8">
+        <div className="flex lg:flex-col items-start lg:items-center gap-2">
+          <Image
+            src={country.imageUrl}
+            alt={`Flag of ${country.name}`}
+            width={100}
+            height={60}
+            className="lg:mb-4 w-10 lg:h-16 lg:w-24"
+          />
+          <h2 className="text-xl font-semibold mb-2">
+            {country.name} {country.emoji}
+          </h2>
+        </div>
         <div className="my-2 w-full border-t border-gray-300" />
-        <div className="flex flex-col space-y-2 mt-2 w-full px-4">
+        <div className="flex flex-col space-y-2 mt-2 w-full ">
           <div>
             <strong>Nombre Nativo:</strong> {country.native}
           </div>
