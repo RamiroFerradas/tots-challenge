@@ -1,25 +1,18 @@
 "use client";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
 import { Country } from "@/app/models/country";
+import MarkerIcon from "./MarkerIcon";
 
 type Props = {
-  countries: Country[];
   selectedCountry: Country | null;
+  onCountrySelect: (country: Country) => void;
 };
 
-// const iconPerson = new L.Icon({
-//   iconUrl: require("@/public/Map_pin_icon.png"),
-//   iconRetinaUrl: require("@/public/Map_pin_icon.png"),
-//   iconSize: new L.Point(60, 75),
-//   className: "leaflet-div-icon",
-// });
-
-const Map = ({ selectedCountry }: Props) => {
+const Map = ({ selectedCountry, onCountrySelect }: Props) => {
   return (
     <MapContainer
-      center={selectedCountry?.latlng || [20, 0]}
+      center={[20, -60]}
       zoom={selectedCountry ? 5 : 2}
       style={{ height: "100%", width: "100%" }}
     >
@@ -31,11 +24,12 @@ const Map = ({ selectedCountry }: Props) => {
         <Marker
           key={selectedCountry.code}
           position={selectedCountry.latlng}
-          icon={L.icon({
-            iconUrl: "/pin-icon.png",
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-          })}
+          icon={MarkerIcon}
+          eventHandlers={{
+            click: () => {
+              onCountrySelect(selectedCountry);
+            },
+          }}
         >
           <Popup>
             <strong>{selectedCountry.name}</strong> <br />

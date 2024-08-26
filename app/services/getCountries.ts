@@ -2,6 +2,7 @@ import { gql } from "@apollo/client";
 import countriesWithCoordinates from "@/app/json/countriesWithCoordinates.json";
 import { getClient } from "@/app/lib/apolloClient";
 import { Country, CountryCoordinates } from "@/app/models/country";
+import { getCountryImageUrl } from "@/app//helper/getCountryImageUrl";
 
 export const getFilteredCountriesWithCoordinates = async (): Promise<
   Country[]
@@ -45,6 +46,7 @@ export const getFilteredCountriesWithCoordinates = async (): Promise<
       latlng: matchedMock
         ? [matchedMock.Latitude, matchedMock.Longitude]
         : [0, 0],
+      imageUrl: getCountryImageUrl(country.code),
     };
   });
 

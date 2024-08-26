@@ -1,4 +1,5 @@
 import { Country } from "@/app/models/country";
+import Image from "next/image";
 
 type Props = {
   searchTerm: string;
@@ -36,7 +37,16 @@ const SearchCountrie = ({
             } hover:bg-blue-100`}
             onClick={() => setSelectedCountry(country)}
           >
-            {country.name}
+            <div className="flex m-auto gap-2">
+              <Image
+                src={country.imageUrl}
+                alt={`Flag of ${country.name}`}
+                width={40}
+                height={4}
+                className="object-cover rounded-md"
+              />
+              {country.name}
+            </div>
           </li>
         ))}
       </ul>

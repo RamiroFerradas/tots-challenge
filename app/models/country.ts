@@ -15,6 +15,7 @@ export type Country = {
   }[];
   emoji: string;
   latlng: [number, number];
+  imageUrl: string;
 };
 export type CountryCoordinates = {
   Country: string;
