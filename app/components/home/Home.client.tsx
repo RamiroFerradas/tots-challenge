@@ -50,7 +50,7 @@ const HomeClient = ({ countries }: Props) => {
             }
           )}
         >
-          <div className="p-4 bg-white h-full">
+          <div className="lg:p-4 bg-white h-full">
             {openDetails && selectedCountry && (
               <div className="h-48 lg:h-auto overflow-auto">
                 <CountryDetail

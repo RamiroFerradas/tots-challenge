@@ -28,7 +28,7 @@ const SearchCountrie = ({
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <ul className="space-y-2 h-36 lg:h-full overflow-auto">
+      <ul className="space-y-2 h-36 lg:h-[90vh] overflow-auto">
         {!filteredCountries.length ? (
           <h4 className="text-center">No se encontraron paises</h4>
         ) : (
