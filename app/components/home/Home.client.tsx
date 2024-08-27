@@ -1,11 +1,10 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { Country } from "@/app/models/country";
 import SearchCountrie from "@/app/components/searchCountrie/SearchCountrie";
 import dynamic from "next/dynamic";
 import CountryDetail from "@/app/components/searchCountrie/CountryDetail";
 import classNames from "classnames";
-import ErrorBoundary from "@/app/error";
 
 type Props = {
   countries: Country[];
@@ -17,12 +16,8 @@ const Map = dynamic(() => import("@/app/components/map/index"), {
 
 const HomeClient = ({ countries }: Props) => {
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
-  const [searchTerm, setSearchTerm] = useState<string>("");
   const [openDetails, setOpenDetails] = useState<boolean>(false);
 
-  const filteredCountries = countries.filter((country) =>
-    country.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
   const handleCountrySelect = (country: Country) => {
     setSelectedCountry(null);
     setSelectedCountry(country);
@@ -69,12 +64,10 @@ const HomeClient = ({ countries }: Props) => {
 
         <div className="relative z-10">
           <SearchCountrie
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            filteredCountries={filteredCountries}
             selectedCountry={selectedCountry}
             setSelectedCountry={setSelectedCountry}
             setOpenDetails={setOpenDetails}
+            countries={countries}
           />
         </div>
       </section>

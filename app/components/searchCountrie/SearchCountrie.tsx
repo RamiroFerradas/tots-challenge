@@ -1,23 +1,23 @@
+"use client";
+import { filterCountries } from "@/app/helper";
 import { Country } from "@/app/models/country";
 import Image from "next/image";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 type Props = {
-  searchTerm: string;
-  setSearchTerm: Dispatch<SetStateAction<string>>;
-  filteredCountries: Country[];
   selectedCountry: Country | null;
   setSelectedCountry: Dispatch<SetStateAction<Country | null>>;
   setOpenDetails: Dispatch<SetStateAction<boolean>>;
+  countries: Country[];
 };
 const SearchCountrie = ({
-  searchTerm,
-  setSearchTerm,
-  filteredCountries,
   selectedCountry,
   setSelectedCountry,
   setOpenDetails,
+  countries,
 }: Props) => {
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const filteredCountries = filterCountries(countries, searchTerm);
   return (
     <div className="p-4 bg-gray-100 w-full h-full">
       <input
