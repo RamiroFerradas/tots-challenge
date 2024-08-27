@@ -42,9 +42,11 @@ npm install
 3. Configura la variables de entorno
    En un archivo **.env.local** en la raíz del proyecto configura la variable de entorno
 
-````
-bash NEXT_PUBLIC_GRAPHQL_API_URL
-```3. Iniciar la aplicación:
+```bash 
+NEXT_PUBLIC_GRAPHQL_API_URL
+```
+
+4. Iniciar la aplicación:
 
 ```bash
    npm run dev
