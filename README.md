@@ -39,11 +39,16 @@ git clone https://github.com/RamiroFerradas/tots-challenge.git
 npm install
 ```
 
-3. Iniciar la aplicación:
+3. Configura la variables de entorno
+   En un archivo **.env.local** en la raíz del proyecto configura la variable de entorno
+
+````
+bash NEXT_PUBLIC_GRAPHQL_API_URL
+```3. Iniciar la aplicación:
 
 ```bash
    npm run dev
-```
+````
 
 ## Despliegue
 
