@@ -27,7 +27,7 @@ const CountryDetail = ({ country, onClose }: Props) => {
             alt={`Flag of ${country.name}`}
             width={100}
             height={60}
-            className="lg:mb-4 w-10 lg:h-16 lg:w-24"
+            className="hidden lg:inline lg:mb-4 w-10 lg:h-16 lg:w-24"
           />
           <h2 className="text-xl font-semibold mb-2">
             {country.name} {country.emoji}
