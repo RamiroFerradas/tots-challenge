@@ -1,31 +1,13 @@
 "use client";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Country } from "@/app/models/country";
 import MarkerIcon from "./MarkerIcon";
-import { useEffect } from "react";
+import FlyToCountry from "./FlyToCountry";
 
 type Props = {
   selectedCountry: Country | null;
   onCountrySelect: (country: Country) => void;
-};
-
-const FlyToCountry = ({
-  selectedCountry,
-}: {
-  selectedCountry: Country | null;
-}) => {
-  const map = useMap();
-
-  useEffect(() => {
-    if (selectedCountry) {
-      map.flyTo(selectedCountry.latlng, 5, {
-        duration: 1.5,
-      });
-    }
-  }, [selectedCountry, map]);
-
-  return null;
 };
 
 const Map = ({ selectedCountry, onCountrySelect }: Props) => {
@@ -47,11 +29,6 @@ const Map = ({ selectedCountry, onCountrySelect }: Props) => {
           key={selectedCountry.code}
           position={selectedCountry.latlng}
           icon={MarkerIcon}
-          eventHandlers={{
-            click: () => {
-              onCountrySelect(selectedCountry);
-            },
-          }}
         >
           <Popup>
             <strong>{selectedCountry.name}</strong> <br />

@@ -1,16 +1,16 @@
 "use client";
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import { Country } from "@/app/models/country";
-import SearchCountrie from "@/app/components/searchCountrie/SearchCountrie";
 import dynamic from "next/dynamic";
-import CountryDetail from "@/app/components/searchCountrie/CountryDetail";
 import classNames from "classnames";
+import CountryDetail from "@/app/components/countryDetail/CountryDetail";
+import SearchCountry from "@/app/components/searchCountry/SearchCountry";
 
 type Props = {
   countries: Country[];
 };
 
-const Map = dynamic(() => import("@/app/components/map/index"), {
+const Map = dynamic(() => import("@/app/components/map/Map"), {
   ssr: false,
 });
 
@@ -29,7 +29,10 @@ const HomeClient = ({ countries }: Props) => {
   };
 
   return (
-    <div className="mx-auto flex lg:flex-row flex-col h-screen w-screen">
+    <div
+      className="mx-auto flex lg:flex-row flex-col h-screen w-screen"
+      data-testid="Map"
+    >
       <section className="h-3/4 lg:w-3/4 lg:h-full">
         <Map
           selectedCountry={selectedCountry}
@@ -52,7 +55,10 @@ const HomeClient = ({ countries }: Props) => {
         >
           <div className="lg:p-4 bg-white h-full">
             {openDetails && selectedCountry && (
-              <div className="h-48 lg:h-auto overflow-auto">
+              <div
+                data-testid="CountryDetails"
+                className="h-48 lg:h-auto overflow-auto"
+              >
                 <CountryDetail
                   country={selectedCountry}
                   onClose={handleCloseDrawer}
@@ -63,7 +69,7 @@ const HomeClient = ({ countries }: Props) => {
         </div>
 
         <div className="relative z-10">
-          <SearchCountrie
+          <SearchCountry
             selectedCountry={selectedCountry}
             setSelectedCountry={setSelectedCountry}
             setOpenDetails={setOpenDetails}
