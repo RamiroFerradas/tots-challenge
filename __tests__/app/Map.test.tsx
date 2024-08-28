@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Map } from "@/app/components";
 import { Country } from "@/app/models/country";
-import { mockCountries } from "@/__mocks__/mockCountries";
+import { mockCountries } from "../../__mocks__/mockCountries";
 
 describe("Map", () => {
   const country: Country = mockCountries[0];

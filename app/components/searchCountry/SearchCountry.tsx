@@ -2,7 +2,7 @@
 import { filterCountries } from "@/app/helper";
 import { Country } from "@/app/models/country";
 import Image from "next/image";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, Fragment, SetStateAction, useState } from "react";
 import CardCountry from "./CardCountry";
 
 type Props = {
@@ -34,13 +34,14 @@ const SearchCountry = ({
           <h4 className="text-center">No se encontraron paises</h4>
         ) : (
           filteredCountries.map((country) => (
-            <CardCountry
-              key={country.code}
-              country={country}
-              setSelectedCountry={setSelectedCountry}
-              matchCountry={selectedCountry?.code === country.code}
-              setOpenDetails={setOpenDetails}
-            />
+            <li key={country.code}>
+              <CardCountry
+                country={country}
+                setSelectedCountry={setSelectedCountry}
+                matchCountry={selectedCountry?.code === country.code}
+                setOpenDetails={setOpenDetails}
+              />
+            </li>
           ))
         )}
       </ul>

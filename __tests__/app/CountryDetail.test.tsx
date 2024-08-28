@@ -35,18 +35,14 @@ describe("CountryDetail", () => {
     const onCloseMock = jest.fn();
     render(<CountryDetail country={country} onClose={onCloseMock} />);
 
-    // Simula un clic en el botón de cerrar
     const closeButton = screen.getByLabelText("close");
     fireEvent.click(closeButton);
 
-    // Verifica que onClose se ha llamado una vez
     expect(onCloseMock).toHaveBeenCalledTimes(1);
   });
 
   it("renders without crashing when required props are provided", () => {
     render(<CountryDetail country={country} onClose={jest.fn()} />);
-
-    // Verifica que el componente se renderizó correctamente
     expect(screen.getByText("United States 🇺🇸")).toBeInTheDocument();
   });
 });

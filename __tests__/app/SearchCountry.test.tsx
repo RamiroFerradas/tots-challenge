@@ -43,10 +43,8 @@ describe("SearchCountry", () => {
   });
 
   it("shows 'No se encontraron paises' when no country matches the search term", () => {
-    // Render with countries that do not include "Nonexistent Country"
     renderComponent();
 
-    // Simula la entrada de un término de búsqueda que no coincida
     fireEvent.change(screen.getByPlaceholderText("Buscar país..."), {
       target: { value: "Nonexistent Country" },
     });

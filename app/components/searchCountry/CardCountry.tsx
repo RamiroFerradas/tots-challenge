@@ -13,10 +13,12 @@ const CardCountry = ({
   matchCountry,
   setOpenDetails,
 }: Props) => {
+  const handleClick = () => {
+    setOpenDetails(true);
+  };
   return (
-    <li
+    <div
       data-testid="CardCountry"
-      key={country.code}
       className={`p-2 flex justify-between items-center cursor-pointer rounded ${
         matchCountry ? "bg-blue-200" : "bg-white"
       } hover:bg-blue-100`}
@@ -34,13 +36,11 @@ const CardCountry = ({
       </div>
       <button
         className="ml-4 px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm"
-        onClick={() => {
-          setOpenDetails(true);
-        }}
+        onClick={handleClick}
       >
         Info
       </button>
-    </li>
+    </div>
   );
 };
 export default CardCountry;
