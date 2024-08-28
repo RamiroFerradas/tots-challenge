@@ -11,7 +11,7 @@ const FlyToCountry = ({ selectedCountry }: Props) => {
 
   useEffect(() => {
     if (selectedCountry) {
-      map.flyTo(selectedCountry.latlng, 5, { duration: 1.5 });
+      map.flyTo(selectedCountry.latlng, 4, { duration: 1.5 });
     }
   }, [selectedCountry, map]);
 

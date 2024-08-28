@@ -22,7 +22,7 @@ const SearchCountry = ({
   return (
     <div data-testid="SearchCountry" className="p-4 bg-gray-100 w-full h-full">
       <input
-        type="text"
+        type="search"
         placeholder="Buscar país..."
         className="w-full p-2 mb-4 border border-gray-300 rounded"
         value={searchTerm}
