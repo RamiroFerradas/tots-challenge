@@ -54,7 +54,7 @@ NEXT_PUBLIC_GRAPHQL_API_URL
 
 ## Pruebas
 
-4. Ejecuta las pruebas: Para correr todas las pruebas, utiliza el siguiente comando:
+Ejecuta las pruebas: Para correr todas las pruebas, utiliza el siguiente comando:
 
 ```bash
    npm test
