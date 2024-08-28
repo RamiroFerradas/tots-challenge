@@ -62,7 +62,7 @@ Ejecuta las pruebas: Para correr todas las pruebas, utiliza el siguiente comando
 
 ## Despliegue
 
-La aplicación está desplegada en Vercel y puede ser accedida a través de la siguiente URL: [deploy](https://tots-countries-challenge.vercel.app).
+La aplicación está desplegada en Vercel y puede ser accedida a través de la siguiente URL: <a href="https://tots-countries-challenge.vercel.app" target="_blank">tots-countries-challenge.vercel.app</a>.
 
 ## Autor
 
