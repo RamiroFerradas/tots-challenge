@@ -42,7 +42,7 @@ npm install
 3. Configura la variables de entorno
    En un archivo **.env.local** en la raíz del proyecto configura la variable de entorno
 
-```bash 
+```bash
 NEXT_PUBLIC_GRAPHQL_API_URL
 ```
 
@@ -50,7 +50,15 @@ NEXT_PUBLIC_GRAPHQL_API_URL
 
 ```bash
    npm run dev
-````
+```
+
+## Pruebas
+
+4. Ejecuta las pruebas: Para correr todas las pruebas, utiliza el siguiente comando:
+
+```bash
+   npm test
+```
 
 ## Despliegue
 
